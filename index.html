@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>notepad</title>
+</head>
+<style type="text/css">
+ol,ul{
+display:block;
+list-style-type:none;
+margin:3px;
+}
+</style><body>
+<div>&lt;!DOCTYPE html&gt;<br>
+&lt;html lang="zh-CN"&gt;<br>
+&lt;head&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;meta charset="UTF-8"&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;title&gt;&#27754;&#30410;&#35851;&amp;&#23567;&#27431;&#38451;&#30591;&#30340;100&#22825; | &#26102;&#20809;&#38382;&#31572;&#39302;&lt;/title&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;style&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *{margin:0;padding:0;box-sizing:border-box;font-family:'Arial Rounded MT Bold', '&#24494;&#36719;&#38597;&#40657;', sans-serif;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; body{background:#fdf5f3;color:#333;line-height:1.6;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .container{max-width:800px;margin:0 auto;padding:20px;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .header{text-align:center;margin:40px 0;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .header h1{color:#e66465;font-size:2.5rem;margin-bottom:10px;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .header p{color:#666;font-size:1.1rem;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .music-btn{position:fixed;top:20px;right:20px;width:40px;height:40px;border-radius:50%;background:#e66465;color:white;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(230,100,101,0.3);z-index:100;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .quiz-section{background:white;border-radius:12px;padding:30px;margin-bottom:40px;box-shadow:0 4px 12px rgba(0,0,0,0.05);opacity:0;transform:translateY(20px);transition:all 0.5s;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .quiz-title{color:#e66465;font-size:1.5rem;margin-bottom:20px;border-left:4px solid #e66465;padding-left:15px;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .question{margin-bottom:25px;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .question-text{font-size:1.2rem;margin-bottom:15px;color:#333;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .answer-btn{background:#f8e1e1;color:#e66465;border:none;padding:12px 20px;border-radius:8px;margin:0 8px 10px 0;cursor:pointer;transition:all 0.3s;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .answer-btn:hover{background:#e66465;color:white;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .answer-content{display:none;margin-top:15px;padding:15px;background:#fff5f5;border-radius:8px;border-left:3px solid #e66465;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .timeline-section{margin-bottom:40px;opacity:0;transform:translateY(20px);transition:all 0.5s;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .timeline{position:relative;max-width:800px;margin:0 auto;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .timeline::after{content:'';position:absolute;width:6px;background:#f8e1e1;top:0;bottom:0;left:50%;margin-left:-3px;border-radius:3px;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .timeline-item{padding:10px 40px;position:relative;width:50%;box-sizing:border-box;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .timeline-item:nth-child(odd){left:0;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .timeline-item:nth-child(even){left:50%;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .timeline-content{padding:20px;background:white;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.05);}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .timeline-date{color:#e66465;font-weight:bold;margin-bottom:8px;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .album-section{background:white;border-radius:12px;padding:30px;margin-bottom:40px;box-shadow:0 4px 12px rgba(0,0,0,0.05);opacity:0;transform:translateY(20px);transition:all 0.5s;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .album-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:20px;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .album-img{width:100%;height:200px;object-fit:cover;border-radius:8px;cursor:pointer;transition:transform 0.3s;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .album-img:hover{transform:scale(1.03);}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .footer{text-align:center;padding:30px 0;border-top:1px solid #f8e1e1;margin-top:20px;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .footer p{color:#666;font-size:1rem;line-height:1.8;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .footer span{color:#e66465;}<br>
+&nbsp;&nbsp;&nbsp; &lt;/style&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;audio id="memorialMusic" loop&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;source src="http://music.2t58.com/song/Y2NzaG5kaA.html" type="audio/mpeg"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp; &#24744;&#30340;&#27983;&#35272;&#22120;&#19981;&#25903;&#25345;&#38899;&#39057;&#25773;&#25918;<br>
+&nbsp;&nbsp;&nbsp; &lt;/audio&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;button class="music-btn" onclick="toggleMusic()"&gt;&#9654;&#65039;&lt;/button&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp; &lt;div class="container"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="header"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;h1&gt;&#10024; &#27754;&#30410;&#35851;&amp;&#23567;&#27431;&#38451;&#30591;&#30340;100&#22825; &#10024;&lt;/h1&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt;&#8212;&#8212; &#19968;&#20221;&#34255;&#22312;&#38382;&#31572;&#37324;&#30340;&#26102;&#20809;&#31036;&#29289; &#8212;&#8212;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="quiz-section"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;h2 class="quiz-title"&gt;&#128140; &#19987;&#23646;&#25105;&#20204;&#30340;&#22238;&#24518;&#38382;&#31572;&lt;/h2&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="question"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="question-text"&gt;1. &#25105;&#20204;&#31532;&#19968;&#27425;&#32422;&#20250;&#21435;&#30340;&#22320;&#26041;&#65292;&#26159;&#20197;&#19979;&#21738;&#20010;&#65311;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button class="answer-btn" onclick="showAnswer(1)"&gt;&#37329;&#24248;&#20844;&#22253;&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button class="answer-btn" onclick="showAnswer(1)"&gt;&#27966;&#25289;&#33945;&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button class="answer-btn" onclick="showAnswer(1)"&gt;&#25991;&#21270;&#24191;&#22330;&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div id="answer1" class="answer-content"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#27491;&#30830;&#31572;&#26696;&#26159;&#12300;&#27966;&#25289;&#33945;&#12301;&#65374;&#37027;&#22825;&#30495;&#30340;&#30495;&#30340;&#24456;&#24320;&#24515;&#65292;&#31532;&#19968;&#27425;&#21644;&#20320;&#38752;&#37027;&#20040;&#36817;&#65292;&#31532;&#19968;&#27425;&#29301;&#20320;&#30340;&#25163;&#65292;&#22909;&#26790;&#24187;&#21734;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="question"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="question-text"&gt;2. &#20320;&#36865;&#25105;&#30340;&#31532;&#19968;&#20221;&#31036;&#29289;&#65292;&#26159;&#20197;&#19979;&#21738;&#31181;&#65311;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button class="answer-btn" onclick="showAnswer(2)"&gt;&#40092;&#33457;&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button class="answer-btn" onclick="showAnswer(2)"&gt;&#31563;&#33180;&#26538;&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button class="answer-btn" onclick="showAnswer(2)"&gt;&#23567;&#38053;&#21273;&#25187;&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div id="answer2" class="answer-content"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#26159;&#12300;&#31563;&#33180;&#26538;&#12301;&#21568;&#65281;&#26159;&#20320;&#36865;&#25105;&#30340;&#31532;&#19968;&#20010;&#24773;&#20154;&#33410;&#31036;&#29289;&#65292;&#38750;&#24120;&#38750;&#24120;&#23454;&#29992;&#65292;&#19981;&#24871;&#26159;&#25105;&#23453;&#23453;&#65281;&#20040;&#20040;&#21714;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="question"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="question-text"&gt;3. &#25105;&#20204;&#31532;&#19968;&#27425;&#35265;&#38754;&#20320;&#31359;&#30340;&#26159;&#21861;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button class="answer-btn" onclick="showAnswer(3)"&gt;&#29275;&#20180;&#35044;&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button class="answer-btn" onclick="showAnswer(3)"&gt;&#27973;&#34013;&#33394;&#36830;&#34915;&#35033;&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button class="answer-btn" onclick="showAnswer(3)"&gt;&#30701;&#35033;&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div id="answer3" class="answer-content"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#21035;&#38382;&#25105;&#20026;&#21861;&#36824;&#35760;&#24471;&#65292;&#22240;&#20026;&#25105;&#25293;&#20102;&#29031;&#29255;&#21704;&#21704;&#21704;&#21704;&#21704;&#21704;&#21704;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="question"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="question-text"&gt;4. &#25509;&#19979;&#26469;&#30340;&#26085;&#23376;&#65292;&#25105;&#26368;&#24819;&#21644;&#20320;&#19968;&#36215;&#23436;&#25104;&#30340;&#20107;&#26159;&#65311;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button class="answer-btn" onclick="showAnswer(4)"&gt;&#19968;&#36215;sleep&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button class="answer-btn" onclick="showAnswer(4)"&gt;&#21435;&#22806;&#38754;&#28216;&#29609;&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;button class="answer-btn" onclick="showAnswer(4)"&gt;&#20146;&#20146;100&#19979;&lt;/button&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div id="answer4" class="answer-content"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#27809;&#26377;&#31572;&#26696;&#65292;&#25105;&#26368;&#24819;&#21644;&#20320;&#19968;&#36215;&#27704;&#36828;&#27704;&#36828;&#19981;&#20998;&#24320;&#21704;&#21704;&#21704;&#21704;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="timeline-section"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;h2 class="quiz-title"&gt;&#128197; 100&#22825;&#20851;&#38190;&#26102;&#20809;&#36724;&lt;/h2&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="timeline"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="timeline-item"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="timeline-content"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="timeline-date"&gt;Day 1 &#183; &#34920;&#30333;&#37027;&#22825;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt;&#30495;&#30340;&#38750;&#24120;&#38750;&#24120;&#32039;&#24352;&#24403;&#26102;&#65292;&#35760;&#24471;&#26159;&#22312;&#19979;&#21320;&#65292;&#25105;&#35905;&#20986;&#21435;&#20102;&#65292;&#30452;&#25509;&#34920;&#30333;&#20102;&#65292;&#22075;&#22075;&#22075;&#65292;&#32456;&#31350;&#20063;&#26159;&#24471;&#20607;&#25152;&#24895;&#21679;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="timeline-item"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="timeline-content"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="timeline-date"&gt;Day 15 &#183; &#31532;&#19968;&#27425;&#29301;&#25163;&lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt;&#24403;&#26102;&#20320;&#33258;&#28982;&#22320;&#29301;&#20303;&#25105;&#30340;&#25163;&#65292;&#25163;&#23567;&#23567;&#30340;&#19968;&#21482;&#22909;&#21487;&#29233;&#65292;&#25105;&#21364;&#27704;&#36828;&#37117;&#19981;&#24819;&#20877;&#26494;&#24320;&#65292;&#37027;&#26159;&#25105;&#31532;&#19968;&#27425;&#35273;&#24471;&#8220;&#24515;&#21160;&#8221;&#36825;&#20040;&#20855;&#20307;&#65292;&#20687;&#25571;&#20102;&#21482;&#23567;&#20820;&#23376;&#12290;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="timeline-item"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="timeline-content"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="timeline-date"&gt;Day 30 &#183; &#31532;&#19968;&#27425;&#19968;&#36215;&#36807;&#22812;&lt;/div&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt;&#20889;&#36825;&#20221;&#38382;&#31572;&#26102;&#65292;&#25105;&#32763;&#20102;&#25105;&#20204;&#25152;&#26377;&#30340;&#32842;&#22825;&#35760;&#24405;&#21644;&#29031;&#29255;&#65292;&#21407;&#26469;100&#22825;&#37324;&#65292;&#27599;&#19968;&#21051;&#37117;&#20540;&#24471;&#29645;&#34255;&#12290;&#26410;&#26469;&#36824;&#24819;&#21644;&#20320;&#36208;&#26356;&#22810;&#20010;100&#22825;&#65292;&#25226;&#25152;&#26377;&#31354;&#30333;&#37117;&#22635;&#28385;&#25105;&#20204;&#30340;&#25925;&#20107;&#12290;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="album-section"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;h2 class="quiz-title"&gt;&#128248; 100&#22825;&#22238;&#24518;&#30456;&#20876;&lt;/h2&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="album-grid"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;img src="https://img13.360buyimg.com/ddimg/jfs/t1/341444/34/21077/22509/6906ed90Fdceb8059/ef63e9360c943e2f.jpg" alt="&#21487;&#29233;&#30340;&#23453;&#23453;" class="album-img"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;img src="https://img12.360buyimg.com/ddimg/jfs/t1/343558/38/20734/36182/6906edc8F07f5eb1c/9a3fbb1b78300fe3.jpg" alt="&#36229;&#32423;&#26080;&#25932;&#21487;&#29233;" class="album-img"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;img src="https://img14.360buyimg.com/ddimg/jfs/t1/355854/35/2022/50580/6906edfdF867c35f0/46011082b60b766e.jpg" alt="&#31169;&#20250;" class="album-img"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;img src="https://img14.360buyimg.com/ddimg/jfs/t1/340756/28/27127/23203/6906ee36F80e29751/403f76844ce6da19.jpg" alt="&#22114;&#32822;" class="album-img"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p style="text-align:center; margin-top:15px; color:#666;"&gt;&#28857;&#20987;&#22270;&#29255;&#21487;&#26597;&#30475;&#22823;&#22270;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;div class="footer"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt;&#33268;&#23567;&#30591;&#65306;&lt;br&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 100&#22825;&#24456;&#30701;&#65292;&#30701;&#21040;&#36824;&#27809;&#21644;&#20320;&#19968;&#36215;&#20570;&#23436;&#24819;&#20570;&#30340;&#20107;&#65307;100&#22825;&#20063;&#24456;&#38271;&#65292;&#38271;&#21040;&#27599;&#19968;&#20010;&#21644;&#20320;&#26377;&#20851;&#30340;&#30636;&#38388;&#65292;&#37117;&#28165;&#26224;&#24471;&#20687;&#26152;&#22825;&#12290;&lt;br&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#35874;&#35874;&#20320;&#20986;&#29616;&#22312;&#25105;&#30340;&#29983;&#21629;&#37324;&#65292;&#25226;&#26222;&#36890;&#30340;&#26085;&#23376;&#21464;&#24471;&#38378;&#38378;&#21457;&#20809;&#12290;&lt;br&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#19979;&#19968;&#20010;100&#22825;&#65292;&#19979;&#19979;&#19968;&#20010;100&#22825;&#65292;&#25105;&#36824;&#24819;&#21644;&#20320;&#19968;&#36215;&#65292;&#24930;&#24930;&#36208;&#65292;&#35748;&#30495;&#29233;&#12290;&lt;br&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;span&gt;&#8212;&#8212; &#27704;&#36828;&#20026;&#20320;&#24515;&#21160;&#30340;&#27754;&#30410;&#35851;&lt;/span&gt;&lt;/p&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+&nbsp;&nbsp;&nbsp; &lt;/div&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp; &lt;script&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; let musicPlaying = false;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; const music = document.getElementById('memorialMusic');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; const musicBtn = document.querySelector('.music-btn');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function toggleMusic() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (musicPlaying) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; music.pause();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; musicBtn.textContent = '&#9654;&#65039;';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; music.play();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; musicBtn.textContent = '&#9208;&#65039;';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; musicPlaying = !musicPlaying;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; function showAnswer(num) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; const allAnswers = document.getElementsByClassName('answer-content');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(let i=0; i&lt;allAnswers.length; i++){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; allAnswers[i].style.display = 'none';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.getElementById('answer' + num).style.display = 'block';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; window.onload = function() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; const sections = document.querySelectorAll('.quiz-section, .timeline-section, .album-section');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sections.forEach((section, index) =&gt; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setTimeout(() =&gt; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; section.style.opacity = '1';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; section.style.transform = 'translateY(0)';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }, 200 * index);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; toggleMusic();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+&nbsp;&nbsp;&nbsp; &lt;/script&gt;<br>
+&lt;/body&gt;<br>
+&lt;/html&gt;<br>
+</div>
+</body>
+</html>
